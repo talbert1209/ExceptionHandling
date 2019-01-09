@@ -25,12 +25,12 @@ namespace ExceptionHandling.Domain
         {
             if (attacker.HitPoints <= 0)
             {
-                throw new ArgumentOutOfRangeException($"Attacker is dead and cannot attack");
+                throw new ArgumentOutOfRangeException($"Attacker");
             }
 
             if (defender.HitPoints <= 0)
             {
-                throw new ArgumentOutOfRangeException($"Defender is already dead and cannot be attacked");
+                throw new ArgumentOutOfRangeException($"Defender");
             }
             Random random = new Random();
             int attackValue = random.Next(100);

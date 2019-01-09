@@ -36,7 +36,11 @@ namespace ExceptionHandling
 
                 resultLabel.Text = result;
             }
-            catch (DivideByZeroException exception)
+            catch (ArgumentOutOfRangeException exception)
+            {
+                resultLabel.Text = $"{exception.ParamName} is already dead!";
+            }
+            catch (DivideByZeroException)
             {
                 resultLabel.Text = "Can't divide by zero, dummy!";
             }
