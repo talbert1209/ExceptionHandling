@@ -29,12 +29,16 @@ namespace ExceptionHandling
 
                 result = $"Winning Percentage: {winningPercentage:P}";
 
-                var monster = new Character() { Name = "Zerg", HitPoints = 0 };
-                var hero = new Character() { Name = "Buzz", HitPoints = 5 };
+                var monster = new Character() {Name = "Zerg", HitPoints = 0};
+                var hero = new Character() {Name = "Buzz", HitPoints = 5};
                 GameActions.Battle(hero, monster);
                 result += $"{hero.Name} attacked {monster.Name} leaving him with {monster.HitPoints} hit points.";
 
                 resultLabel.Text = result;
+            }
+            catch (DivideByZeroException exception)
+            {
+                resultLabel.Text = "Can't divide by zero, dummy!";
             }
             catch (Exception exception)
             {
