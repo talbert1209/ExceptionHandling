@@ -23,7 +23,15 @@ namespace ExceptionHandling.Domain
 
         public static void Battle(Character attacker, Character defender)
         {
+            if (attacker.HitPoints <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"Attacker is dead and cannot attack");
+            }
 
+            if (defender.HitPoints <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"Defender is already dead and cannot be attacked");
+            }
             Random random = new Random();
             int attackValue = random.Next(100);
 
